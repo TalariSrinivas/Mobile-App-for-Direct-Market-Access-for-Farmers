@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmerHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+            padding-left: 0;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .img1 {
+            width: 7.5%;
+            height: auto;
+
+            vertical-align: middle;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .btn {
+            background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            width: 100px;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn span {
+            display: block;
+            position: relative;
+            z-index: 1;
+            padding: 10px 20px;
+        }
+
+        .btn span:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            transition: all 0.4s ease-in-out;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+        }
+
+        .btn:hover span:before {
+            transform: scaleX(1);
+        }
+
+        .signup-link {
+            color: #4facfe;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .signup-link:hover {
+            color: #00f2fe;
+        }
+
+        .login-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+            margin: 15px;
+        }
+
+        .login-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .btn {
+                font-size: 12px;
+                width: 80px;
+            }
+
+            .header {
+                flex-direction: row;
+
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .img1 {
+                width: 15%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .login-container {
+                width: 100%;
+                max-width: 400px;
+                padding: 20px;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            body {
+                height: auto;
+                padding-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .login-container {
+                padding: 15px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+        @media (max-width: 768px) {
+    .btn {
+        font-size: 12px;
+        width: 90px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        font-size: 10px;
+        width: 70px;
+        padding: 6px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Farmer Hub</h1>
+            <img src="https://cdn-icons-png.freepik.com/512/14381/14381315.png" class="img1" alt="Farmer Hub Image">
+        </div>
+        <div class="btn-container">
+            <a type="button" href="home.html" class="btn"><span>Index</span></a>
+            <a type="button" href="home.html" class="btn"><span>Index</span></a>
+            <a type="button" href="home.html" class="btn"><span>Index</span></a>
+            <a type="button" href="home.html" class="btn"><span>Index</span></a>
+        </div>
+    </div>
+
+    <div class="login-section">
+        <div class="login-container">
+            <h2>Farmer</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHzpM-cn4KdAabQQGf6EyJXxXMI4dgaNXVFrfGilPvrUMVdIoEJeFQvg_cF226DMkM1_g&usqp=CAU" width="40%">
+            <form action="validateLogin.jsp">
+                <button type="submit" class="btn"><span>Login</span></button>
+                <p>Don't have an account? <a href="signup.html" class="signup-link">Register</a></p>
+            </form>
+        </div>
+        <div class="login-container">
+            <h2>Buyer</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT2Qnnjw9zobtujPgxlFTrkn9SYCWL6fz6qQ&s" width="40%">
+            <form action="validateLogin.jsp">
+                <button type="submit" class="btn"><span>Login</span></button>
+                <p>Don't have an account? <a href="signup.html" class="signup-link">Register</a></p>
+            </form>
+        </div>
+        <div class="login-container">
+            <h2>Admin</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/1319/1319291.png" width="40%">
+            <form action="validateLogin.jsp">
+                <button type="submit" class="btn"><span>Login</span></button>
+                <p>Don't have an account? <a href="signup.html" class="signup-link">Register</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

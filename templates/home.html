@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar with Active Glow, Hover, and Click Effects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+  <!-- Add Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+
+  <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; }
+
+    /* Navbar Styles */
+    .header { position: fixed; width: 100%; top: 0; background: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 100; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem; max-width: 1100px; margin: auto; }
+    .nav__logo { 
+      font-weight: bold; 
+      background: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav__logo img { height: 35px; margin-left: 4px; }
+    .nav__list { display: flex; gap: 1.5rem; list-style: none; }
+    .nav__link { color: #333; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s; }
+    .nav__icons { display: flex; gap: 1rem; align-items: center; position: relative; z-index: 101; }
+    .nav__toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+    /* Button Styles */
+    .nav__button { 
+      padding: 0.5rem 1rem; 
+      color: #fff; 
+      background-color: #4FFFB0; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: background-color 0.3s;
+    }
+    .nav__button:hover { background-color: #3ec99b; }
+
+    /* Glow and Hover Effects */
+    .nav__link:hover, .nav__link.active { color: #4FFFB0; }
+    .nav__link:hover { text-shadow: 0px 0px 8px #4FFFB0; }
+
+    /* Click Effect */
+    .nav__link.clicked {
+      transform: scale(1.1);
+      z-index: 1;
+      box-shadow: 0px 0px 12px rgba(79, 255, 176, 0.6);
+    }
+
+    /* Mobile Menu Styles */
+    @media (max-width: 768px) {
+      .nav__list { 
+        position: fixed; 
+        top: 0; 
+        right: -100%;
+        flex-direction: column; 
+        background: #fff; 
+        width: 60%; 
+        height: 100vh; 
+        padding-top: 4rem; 
+        transition: right 0.3s;
+        z-index: 100;
+      }
+      .nav__list.show { right: 0; }
+      .nav__toggle { display: block; color: #333; z-index: 102; }
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+      gap: 15px;
+      padding: 2rem;
+      margin-top: 5rem; /* Offset for fixed navbar */
+    }
+
+    .Product-container {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-family: 'Roboto', sans-serif; /* Apply font here */
+    }
+
+    /* Mobile view adjustment: 2 containers per row */
+    @media (max-width: 600px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns in mobile view */
+      }
+    }
+
+    /* Product Button Styles */
+    .product-button {
+      width: 90%; /* 90% of container width */
+      margin-top: 1rem;
+      padding: 0.5rem;
+      color: #fff;
+      background-color: #4FFFB0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: block; /* Ensures it occupies full width of 90% */
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .product-button:hover {
+      background-color: #3ec99b;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="nav__logo">
+        CropCart
+        <img src="https://cdn-icons-png.freepik.com/512/14381/14381315.png" alt="Logo Image">
+      </a>
+      <ul class="nav__list" id="nav-menu">
+        <li><a href="#" class="nav__link" onclick="setActive(this)"><i class="ri-home-line"></i> Home</a></li>
+        <li><a href="#" class="nav__link" onclick="setActive(this)"><i class="ri-information-line"></i> About Us</a></li>
+        <li><a href="#" class="nav__link" onclick="setActive(this)"><i class="ri-service-line"></i> Services</a></li>
+        <li><a href="#" class="nav__link" onclick="setActive(this)"><i class="ri-contacts-line"></i> Contact</a></li>
+      </ul>
+      <div class="nav__icons">
+        <i class="ri-search-line"></i>
+        <i class="ri-user-line"></i>
+        <button class="nav__button">Login</button>
+        <button class="nav__button">Sign Up</button>
+        <i class="ri-menu-line nav__toggle" id="nav-toggle"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    {% for p in products %}
+      <div class="Product-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9cRTv_WmJZCBkCpPRim6aDvXFMNi3_O1EhQ&s" alt="img" class="product-image">
+
+        <p><b>Product :</b>{{ p['Product Name'] }}<br> 
+           <b>Farmer  :</b>{{ p['Farmer Name'] }}<br>
+           <b>Quantity:</b>{{ p['Quantity'] }} Kg<br>
+           <b>Price   :</b>Rs.{{ p['Price'] }}<br>
+           <b>Date    :</b>{{ p['Date'] }}<br> 
+           <button class="product-button">Buy Now</button>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show'); // Toggle 'show' class to open/close menu
+    });
+
+    function setActive(link) {
+      const links = document.querySelectorAll('.nav__link');
+      links.forEach(l => {
+        l.classList.remove('active');
+        l.classList.remove('clicked');
+      });
+      link.classList.add('active');
+      link.classList.add('clicked');
+    }
+  </script>
+
+</body>
+</html>

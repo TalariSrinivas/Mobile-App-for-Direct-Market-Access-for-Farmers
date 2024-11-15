@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+        }
+        .container{
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 0 15px;
+            background-color:  #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .container header{
+            position: relative;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+        .container header::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 3px;
+            width: 27px;
+            background-color: #4FFFB0;
+            border-radius: 8px;
+        }
+        .container form{
+            position: relative;
+            min-height: 490px;
+            margin-top: 16px;
+            background-color: #fff;
+        }
+        .container form .form{
+            position: absolute;
+            background-color: #fff;
+            width: 100%;
+        }
+        .container form .form.second{
+            display: none;
+        }
+        .container form.secActive .form.first{
+            display: none;
+        }
+        .container form.secActive .form.second{
+            display: block;
+        }
+        .container form .title{
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 6px 0;
+            color: #333;
+        }
+        .container form .fields{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        form .fields .input-field{
+            display: flex;
+            width: calc(100% / 3 - 15px);
+            flex-direction: column;
+            margin: 4px 0;
+        }
+        .input-field label{
+            font-size: 12px;
+            font-weight: 500;
+            color: #2e2e2e;
+        }
+        .input-field input{
+            height: 42px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            margin: 8px 0;
+            padding: 0 15px;
+            outline: none;
+            border: 1px solid #aaa;
+        }
+        .input-field input:is(:focus,:valid){
+            box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+        }
+        /* New Button Styles */
+        .form-button {
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #4FFFB0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%; /* Adjusted to fit full width */
+            max-width: 150px; /* Set a max width to keep buttons balanced */
+            margin: 10px auto 0; /* Center align */
+            text-align: center;
+            font-size: 16px;
+        }
+        .form-button:hover {
+            background-color: #3ec99b;
+        }
+        @media(max-width: 750px){
+            .container form{
+                overflow-y: scroll;
+            }
+            form .fields .input-field{
+                width: calc(100% / 1 - 15px);
+            } 
+            .container form::-webkit-scrollbar{
+                display: none;
+            }
+        }
+        @media(max-width: 550px){
+            form .fields .input-field{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>Registration</header>
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                    </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                    </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                    </div>
+                </div>
+                <input type="button" value="Next" class="form-button nextBtn">
+            </div>
+
+            <div class="form second">
+                <div class="details address">
+                    <span class="title">Address Details</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Address Type</label>
+                            <input type="text" placeholder="Enter address type" required>
+                        </div>
+                        <div class="input-field">
+                            <label>State</label>
+                            <input type="text" placeholder="Enter your state" required>
+                        </div>
+                        <div class="input-field">
+                            <label>District</label>
+                            <input type="text" placeholder="Enter your district" required>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Address Type</label>
+                            <input type="text" placeholder="Enter address type" required>
+                        </div>
+                        <div class="input-field">
+                            <label>State</label>
+                            <input type="text" placeholder="Enter your state" required>
+                        </div>
+                        <div class="input-field">
+                            <label>District</label>
+                            <input type="text" placeholder="Enter your district" required>
+                        </div>
+                    </div>
+                </div>
+                <input type="button" value="Back" class="form-button backBtn">
+                <input type="submit" value="Submit" class="form-button">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector("form"),
+              nextBtn = form.querySelector(".nextBtn"),
+              backBtn = form.querySelector(".backBtn");
+
+        nextBtn.addEventListener("click", () => {
+            form.classList.add('secActive');
+        });
+
+        backBtn.addEventListener("click", () => {
+            form.classList.remove('secActive');
+        });
+    </script>
+</body>
+</html>
